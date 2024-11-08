@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const path = require('path')
+const prompt = require('prompt')
+const defaultStructure = require('./default-structure.json')
+
+function createStructure(basePath, structure) {
+    Object.keys(structure).forEach(name => {
+        const itemPath = path.join(basePath, name)
+        if (typeof structure[name] === 'object') {
+            fs.mkdirSync(itemPath, { recursive: true })
+            createStructure(itemPath, structure[name])
+        } else {
+            fs.writeFileSync(itemPath, structure[name], 'utf8')
+        }
+    });
+}
+
+const schema = {
+    properties: {
+        create: {
+            message: 'Would like to create the default structure? (Y/N)',
+            default: 'N'
+        }
+    }
+}
+
+try {
+    prompt.start()
+
+    prompt.get(schema, (err, result) => {
+        if (result.create === 'Y') {
+            createStructure(process.cwd(), defaultStructure)
+            console.log('Default folder structure created successfully!')
+        }
+    })
+} catch (error) {
+    console.error(error)
+}

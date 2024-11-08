@@ -1,0 +1,22 @@
+{
+    "phpServer": {
+        "port": 8000,
+        "command": "php -S localhost:{port} -t dist/"
+    },
+    "jsBuild": {
+        "entry": "src/js/app.ts",
+        "output": "dist/js/bundle.js"
+    },
+    "sassBuild": {
+        "entry": "src/scss/styles.scss",
+        "output": "dist/css/style.min.css"
+    },
+    "watch": {
+        "directories": [
+            "src/**/*"
+        ]
+    },
+    "server": {
+        "port": 8080
+    }
+}
