@@ -3,6 +3,7 @@
 .env.local
 .env.*.local
 .env.php
+bricolo
 
 # vendors & node_modules
 node_modules
