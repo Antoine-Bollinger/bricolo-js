@@ -1,7 +1,7 @@
 {
     "name": "bricolo",
     "author": "Antoine Bollinger",
-    "version": "1.5.1",
+    "version": "1.5.8",
     "license": "ISC",
     "description": "A development tool for running PHP, JS, and Sass in parallel.",
     "keywords": [
@@ -17,13 +17,14 @@
         "js-build",
         "css-build"
     ],
-    "main": "./bin/index",
     "bin": {
-        "bricolo": "./bin/bricolo"
+        "bricolo": "bin/bricolo"
     },
     "files": [
         "bin",
+        "dist",
         "lib",
+        "src",
         "config.json",
         "README.md"
     ],
@@ -38,8 +39,8 @@
     },
     "scripts": {
         "serve": "node ./lib/serve",
-        "initiate": "node ./lib/initiate",
-        "postinstall": "node ./lib/initiate",
+        "initiate": "node ./lib/init",
+        "postinstall": "node ./lib/init",
         "help": "node ./lib/help"
     }
 }

@@ -1,0 +1,63 @@
+#!/usr/bin/env node
+const fs = require("fs")
+const path = require("path")
+const prompt = require("prompt")
+
+function copyFolders(from, to, folders) {
+    if (!fs.existsSync(to))
+        fs.mkdirSync(to, { recursive: true })
+
+    for (const folder of folders) {
+        const fromPath = path.join(from, folder)
+        const toPath = path.join(to, folder)
+
+        if (fs.existsSync(fromPath) && fs.statSync(fromPath).isDirectory())
+            copyFolder(fromPath, toPath)
+        else
+            console.log(`🚨 \x1b[31mFolder "${folder}" does not exist in source: ${source}\x1b[0m`)
+
+    }
+}
+
+function copyFolder(from, to) {
+    if (!fs.existsSync(to))
+        fs.mkdirSync(to, { recursive: true })
+
+    const items = fs.readdirSync(from)
+
+    for (const item of items) {
+        const fromPath = path.join(from, item)
+        const toPath = path.join(to, item)
+
+        if (fs.statSync(fromPath).isDirectory())
+            copyFolder(fromPath, toPath)
+        else
+            fs.copyFileSync(fromPath, toPath)
+    }
+}
+
+const from = path.resolve(__dirname, "..")
+const to = process.cwd()
+const folders = ["dist", "src"]
+
+const schema = {
+    properties: {
+        create: {
+            message: "Would like to create the default structure? [\x1b[33mno\x1b[0m, yes]",
+            default: "no"
+        }
+    }
+}
+
+try {
+    prompt.start()
+
+    prompt.get(schema, (err, result) => {
+        if (["yes", "y"].includes(result.create.toLowerCase())) {
+            copyFolders(from, to, folders)
+            console.log("✅ \x1b[32mDefault folder structure created successfully!\x1b[0m")
+        }
+    })
+} catch (error) {
+    console.error(`🚨 \x1b[31m${error}\x1b[0m`)
+}

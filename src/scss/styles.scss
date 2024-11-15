@@ -1,24 +1,16 @@
-// Default SASS file
-:root {
-    --font-family-sans-serif: "Fira Sans", "Source Sans Pro", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-mono: "Fira Mono", "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 html,
 body {
-    height: 100%;
     width: 100%;
+    height: 100%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 body {
-    background-color: #f2f2f2;
-    color: #333333;
-    font-family: var(--font-family-sans-serif);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,5 +21,5 @@ section {
 }
 
 h1 {
-    color: #336699;
+    color: #4F5B93;
 }

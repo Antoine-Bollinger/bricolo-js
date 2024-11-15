@@ -102,13 +102,13 @@ After installation, you can run the *initiate* script to create the default proj
 In order to run this script, please type: 
 
 ```bash
-npx bricolo initiate
+npx bricolo init
 ``` 
 
 You'll be prompted: 
 
 ```bash
-Would you like to create the default structure? (Y/N)
+Would like to create the default structure? [no, yes]:  (no)
 ```
 
 If you choose **Y**, the following structure will be created. 
