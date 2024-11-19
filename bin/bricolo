@@ -3,25 +3,30 @@ const args = process.argv.slice(2)
 const command = args[0]
 
 if (!command) {
-    console.log('\x1b[32mWelcome to bricolo\'s world!\x1b[0m')
-    console.log('\x1b[33mType `help` to open your eyes to all our possibilities!\x1b[0m')
+    console.log("\x1b[32mWelcome to bricolo's world!\x1b[0m")
+    console.log("\x1b[33mType `help` to open your eyes to all our possibilities!\x1b[0m")
     process.exit(1)
 }
 
 switch (command) {
-    case 'init':
-    case '-i':
-        require('../lib/init')
+    case "init":
+    case "-i":
+        require("../lib/init")
         break
-    case 'serve':
-    case '-s':
-        require('../lib/serve')
+    case "serve":
+    case "-s":
+        require("../lib/serve")
         break
-    case 'help':
-    case '-h':
-        require('../lib/help')
+    case "help":
+    case "-h":
+        require("../lib/help")
         break
     default:
         console.error(`🚧 \x1b[32mUnknown command: \`${command}\`. Type \`help\` to see available commands.\x1b[0m`)
         process.exit(1)
 }
+
+process.on("SIGINT", _ => {
+    console.log(`🙈  \x1b[33mProcess is being stopped.\x1b[0m`)
+    process.exit(0)
+})
