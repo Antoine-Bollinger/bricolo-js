@@ -10,6 +10,6 @@ console.log(`
 
 \x1b[33mAvailable commands:\x1b[39m
     \x1b[32mhelp\x1b[39m        Display this same message 👽️
-    \x1b[32minitiate\x1b[39m    Create a default structure for the project (Sass, Typescript).
+    \x1b[32minit\x1b[39m        Create a default structure for the project (Sass, Typescript).
     \x1b[32mserve\x1b[39m       Starts a build-in PHP serves, live-build Sass and Typescript and live browser reload.
 `);
