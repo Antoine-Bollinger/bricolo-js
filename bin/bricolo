@@ -17,6 +17,10 @@ switch (command) {
     case "-s":
         require("../lib/serve")
         break
+    case "watch":
+    case "-w":
+        require("../lib/watch")
+        break
     case "help":
     case "-h":
         require("../lib/help")
