@@ -22,7 +22,7 @@ function runDevEnvironment() {
             { command: `${phpServerCommand}`, name: 'PHP Server', prefixColor: 'blue' },
             { command: `npx esbuild ${config.jsBuild.entry} --outfile=${config.jsBuild.output} --watch --bundle --minify`, name: 'JS Watch', prefixColor: 'yellow' },
             { command: `npx sass --watch ${config.sassBuild.entry}:${config.sassBuild.output} --style compressed`, name: 'SASS Watch', prefixColor: 'magenta' },
-            { command: `npx wait-on http://localhost:${phpServerPort} && npx browser-sync start --proxy "localhost:${phpServerPort}" --port ${config.server.port} --files ${config.watch.directories.join(',')}`, name: 'LiveReload', prefixColor: 'green' }
+            { command: `npx wait-on http://localhost:${phpServerPort} && npx browser-sync start --proxy "localhost:${phpServerPort}" --port ${config.server.port} --files ${config.watch.directories.join(',')} --no-notify`, name: 'LiveReload', prefixColor: 'green' }
         ], {
             prefix: 'name',
             killOthers: ['failure', 'success'],

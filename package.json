@@ -1,7 +1,7 @@
 {
     "name": "bricolo",
     "author": "Antoine Bollinger",
-    "version": "1.6.4",
+    "version": "1.6.6",
     "license": "ISC",
     "description": "A development tool for running PHP, JS, and Sass in parallel.",
     "keywords": [
